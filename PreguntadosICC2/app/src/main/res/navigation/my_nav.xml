@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.preguntadosicc.main.fragments.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_amigosFragment"
+            app:destination="@id/amigosFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_invitacionesFragment"
+            app:destination="@id/invitacionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/amigosFragment"
+        android:name="com.example.preguntadosicc.main.amigos.AmigosFragment"
+        android:label="fragment_amigos"
+        tools:layout="@layout/fragment_amigos" />
+    <fragment
+        android:id="@+id/invitacionesFragment"
+        android:name="com.example.preguntadosicc.main.fragments.InvitacionesFragment"
+        android:label="fragment_invitaciones"
+        tools:layout="@layout/fragment_invitaciones" />
+</navigation>
