@@ -1,18 +1,23 @@
 package com.example.preguntadosicc.main.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import com.example.preguntadosicc.Login
 import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
+import com.example.preguntadosicc.login.LoginViewModel
 import com.example.preguntadosicc.navigation.LoginNavigator
 import com.example.preguntadosicc.navigation.Navigator
 
 class InicioFragment : Fragment() {
+
+    private val logInViewModel: LoginViewModel by activityViewModels()
 
     lateinit var navigator : Navigator
 
@@ -36,6 +41,15 @@ class InicioFragment : Fragment() {
         val invitacionesB = view.findViewById<Button>(R.id.InvitacionesBtn)
         invitacionesB.setOnClickListener {
             navigator.navigateToInvitaciones()
+        }
+
+        val cerrarSesionB = view.findViewById<Button>(R.id.CerrarSesionBtn)
+
+        cerrarSesionB.setOnClickListener {
+            logInViewModel.logOut()
+            val intent = Intent(activity, Login::class.java)
+            this.startActivity(intent)
+
         }
 
         return view

@@ -9,7 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import com.example.preguntadosicc.R
-import com.example.preguntadosicc.login.repository.LoginViewModel
+import com.example.preguntadosicc.login.LoginViewModel
+import com.example.preguntadosicc.login.models.RegisterInfo
 
 class SignUpFragment : Fragment() {
     private val mLoginviewModel: LoginViewModel by activityViewModels()
@@ -28,6 +29,12 @@ class SignUpFragment : Fragment() {
 
         val signUpSubmit = view.findViewById<Button>(R.id.signupSubmitButton)
         signUpSubmit.setOnClickListener{
+            val email =view.findViewById<EditText>(R.id.emailEditText).text.toString()
+            val username =view.findViewById<EditText>(R.id.usernameEditText).text.toString()
+            val password =view.findViewById<EditText>(R.id.passwordEditText).text.toString()
+            val user = RegisterInfo(email, username, password)
+
+            mLoginviewModel.registerUser(user)
             mLoginviewModel.navigator.navigateToLogin()
         }
 

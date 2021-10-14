@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.example.preguntadosicc.Login
 import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
-import com.example.preguntadosicc.login.repository.LoginViewModel
+import com.example.preguntadosicc.login.LoginViewModel
+import com.example.preguntadosicc.login.models.LoginInfo
 
 class LogInFragment : Fragment() {
     private val mLoginviewModel: LoginViewModel by activityViewModels()
@@ -26,19 +28,37 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        mLoginviewModel.getUsers()
 
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
         val loginB = view.findViewById<Button>(R.id.loginBtn)
         val signupB = view.findViewById<Button>(R.id.signupBtn)
 
-        signupB.setOnClickListener{
-            mLoginviewModel.navigator.navigateToRegister()
-        }
+        mLoginviewModel.user.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                val intent = Intent(activity, MainActivity::class.java)
+                intent.putExtra("Username", it.username)
+                this.startActivity(intent)
+            }
+        })
+
+
 
         loginB.setOnClickListener{
             val intent = Intent(activity, MainActivity::class.java)
             this.startActivity(intent)
 
+            val email = view.findViewById<EditText>(R.id.emailLogInEditText).text.toString()
+            val password = view.findViewById<EditText>(R.id.passwordLogInEditText).text.toString()
+            val user = LoginInfo(email , password)
+
+
+            mLoginviewModel.loginUser(user)
+
+        }
+
+        signupB.setOnClickListener{
+            mLoginviewModel.navigator.navigateToRegister()
         }
 
 
