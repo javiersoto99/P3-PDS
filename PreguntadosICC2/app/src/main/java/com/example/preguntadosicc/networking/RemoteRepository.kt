@@ -15,7 +15,7 @@ private fun makeLoggingInterceptor(isDebug: Boolean): HttpLoggingInterceptor {
     return logging
 }
 //Este es el cliente que funciona por detras de retrofit
-private fun getOkClient(): OkHttpClient {
+fun getOkClient(): OkHttpClient{
     return OkHttpClient()
         .newBuilder()
         .addInterceptor(makeLoggingInterceptor(isDebug = true))
@@ -23,8 +23,8 @@ private fun getOkClient(): OkHttpClient {
 }
 
 
-fun getRetrofit(): Retrofit {
-    val retrofit = Retrofit.Builder().baseUrl("https://kfeeav6eie.execute-api.us-east-1.amazonaws.com/")
+fun getRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    val retrofit = Retrofit.Builder().baseUrl("http://ec2-3-86-31-232.compute-1.amazonaws.com:4030/api/")
         .client(getOkClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()

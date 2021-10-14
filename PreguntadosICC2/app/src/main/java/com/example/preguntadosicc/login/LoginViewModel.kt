@@ -44,7 +44,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun logOut(){
-        user.postValue(repository.logOut())
+        //user.postValue(repository.logOut())
     }
 
 
