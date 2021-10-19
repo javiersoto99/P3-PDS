@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
+import com.example.preguntadosicc.main.models.Friend
 
 class AmigosAdapter:
     RecyclerView.Adapter<AmigosAdapter.AmigosViewHolder>() {
 
-    private var amigos = mutableListOf<Amigo>()
+    private var amigos = mutableListOf<Friend>()
 
     inner class AmigosViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val name = itemView.findViewById(R.id.nombreAmigoUnidoTextView) as TextView
@@ -25,7 +26,7 @@ class AmigosAdapter:
 
     override fun onBindViewHolder(holder: AmigosViewHolder, position: Int) {
         val amigo = amigos[position]
-        holder.name.text = amigo.name
+        holder.name.text = amigo.username
         holder.email.text = amigo.email
 
     }
@@ -34,8 +35,9 @@ class AmigosAdapter:
         return amigos.size
     }
 
-    fun setAmigos(amigos :MutableList<Amigo>){
-        this.amigos = amigos
+
+    fun setAmigos(friends :MutableList<Friend>){
+        this.amigos = friends
         this.notifyDataSetChanged()
     }
 
