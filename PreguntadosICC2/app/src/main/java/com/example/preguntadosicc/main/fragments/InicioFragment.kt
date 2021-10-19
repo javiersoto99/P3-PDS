@@ -43,6 +43,11 @@ class InicioFragment : Fragment() {
             navigator.navigateToInvitaciones()
         }
 
+        val crearPartidaBtn = view.findViewById<Button>(R.id.CrearPartidaBtn)
+        crearPartidaBtn.setOnClickListener {
+            navigator.navigateToCrearPartida()
+        }
+
         val cerrarSesionB = view.findViewById<Button>(R.id.CerrarSesionBtn)
 
         cerrarSesionB.setOnClickListener {

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_invitacionesFragment"
             app:destination="@id/invitacionesFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_crearPartidaFragment"
+            app:destination="@id/crearPartidaFragment" />
     </fragment>
     <fragment
         android:id="@+id/amigosFragment"
@@ -27,4 +30,18 @@
         android:name="com.example.preguntadosicc.main.fragments.InvitacionesFragment"
         android:label="fragment_invitaciones"
         tools:layout="@layout/fragment_invitaciones" />
+    <fragment
+        android:id="@+id/crearPartidaFragment"
+        android:name="com.example.preguntadosicc.main.fragments.CrearPartidaFragment"
+        android:label="fragment_crear_partida"
+        tools:layout="@layout/fragment_crear_partida" >
+        <action
+            android:id="@+id/action_crearPartidaFragment_to_empezarPartidaFragment"
+            app:destination="@id/empezarPartidaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/empezarPartidaFragment"
+        android:name="com.example.preguntadosicc.main.fragments.EmpezarPartidaFragment"
+        android:label="fragment_empezar_partida"
+        tools:layout="@layout/fragment_empezar_partida" />
 </navigation>

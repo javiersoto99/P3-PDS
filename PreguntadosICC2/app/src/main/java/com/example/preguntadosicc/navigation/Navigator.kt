@@ -16,5 +16,13 @@ class Navigator(val activity: MainActivity?) {
 
     }
 
+    fun navigateToCrearPartida(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_crearPartidaFragment)
+    }
+
+    fun navigateToEmpezarPartida(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_crearPartidaFragment_to_empezarPartidaFragment)
+    }
+
 
 }

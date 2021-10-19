@@ -3,7 +3,6 @@ package com.example.preguntadosicc.main.amigos
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
@@ -14,7 +13,7 @@ class AmigosAdapter:
     private var amigos = mutableListOf<Amigo>()
 
     inner class AmigosViewHolder(private val view: View): RecyclerView.ViewHolder(view){
-        val name = itemView.findViewById(R.id.nombreAmigoTextView) as TextView
+        val name = itemView.findViewById(R.id.nombreAmigoUnidoTextView) as TextView
         val email = itemView.findViewById(R.id.EmailTextView) as TextView
     }
 
@@ -35,7 +34,7 @@ class AmigosAdapter:
         return amigos.size
     }
 
-    fun setAmigos(rooms :MutableList<Amigo>){
+    fun setAmigos(amigos :MutableList<Amigo>){
         this.amigos = amigos
         this.notifyDataSetChanged()
     }
