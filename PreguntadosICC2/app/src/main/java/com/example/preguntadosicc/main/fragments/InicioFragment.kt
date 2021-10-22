@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import com.example.preguntadosicc.Login
 import com.example.preguntadosicc.MainActivity
@@ -24,6 +25,7 @@ class InicioFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setNavigator(activity as MainActivity)
+        logInViewModel.getCurrentUser()
     }
 
     override fun onCreateView(
@@ -31,7 +33,15 @@ class InicioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         val view = inflater.inflate(R.layout.fragment_inicio, container, false)
+
+        val welcome = view.findViewById<TextView>(R.id.HolaTxt)
+
+        logInViewModel.currentUser.observe(viewLifecycleOwner,{
+            welcome.text = "Bienvenido " + it.username
+        })
 
         val amigosB = view.findViewById<Button>(R.id.AmigosBtn)
         amigosB.setOnClickListener {

@@ -38,20 +38,10 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mLoginviewModel.getUsers()
 
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
         val loginB = view.findViewById<Button>(R.id.loginBtn)
         val signupB = view.findViewById<Button>(R.id.signupBtn)
-
-        mLoginviewModel.user.observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                val intent = Intent(activity, MainActivity::class.java)
-                intent.putExtra("Username", it.username)
-                this.startActivity(intent)
-            }
-        })
-
 
 
         loginB.setOnClickListener{
@@ -96,7 +86,7 @@ class LogInFragment : Fragment() {
                 if (response.code() == 200) {
 
                     val usuario = gson.fromJson(response.body()?.string(), UserResponse::class.java)
-
+                    mLoginviewModel.loginUser(usuario)
                     Toast.makeText(context,"Login succesful", Toast.LENGTH_LONG).show()
                     val intent = Intent(context, MainActivity::class.java)
                     startActivity(intent)

@@ -13,7 +13,7 @@ class FriendRequestsAdapter:
         private var requests = mutableListOf<FriendRequest>()
 
         inner class SolicitudesAmigosViewHolder(private val view : View): RecyclerView.ViewHolder(view){
-            val email = itemView.findViewById(R.id.nombreAmigoTextView) as TextView
+            val email = itemView.findViewById(R.id.nombreAmigoUnidoTextView) as TextView
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SolicitudesAmigosViewHolder {
