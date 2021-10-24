@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
@@ -65,6 +66,12 @@ class MatchRequestAdapter:
 
                     if(response.code() == 200) {
                         Toast.makeText(it.context, "Partida Aceptada", Toast.LENGTH_LONG).show()
+                        holder.acceptButton.isEnabled = false
+                        holder.acceptButton.isClickable = false
+                        holder.acceptButton.setBackgroundColor(ContextCompat.getColor(it.context, R.color.gray))
+                        holder.rejectButton.isEnabled = false
+                        holder.rejectButton.isClickable = false
+                        holder.rejectButton.setBackgroundColor(ContextCompat.getColor(it.context, R.color.gray))
                     }
                     else {
                         Toast.makeText(it.context, "Error Aceptando Partida", Toast.LENGTH_LONG).show()
@@ -96,6 +103,12 @@ class MatchRequestAdapter:
 
                     if(response.code() == 200) {
                         Toast.makeText(it.context, "Partida Rechazada", Toast.LENGTH_LONG).show()
+                        holder.acceptButton.isEnabled = false
+                        holder.acceptButton.isClickable = false
+                        holder.acceptButton.setBackgroundColor(ContextCompat.getColor(it.context, R.color.gray))
+                        holder.rejectButton.isEnabled = false
+                        holder.rejectButton.isClickable = false
+                        holder.rejectButton.setBackgroundColor(ContextCompat.getColor(it.context, R.color.gray))
                     }
                     else {
                         Toast.makeText(it.context, "Error Rechazando Partida", Toast.LENGTH_LONG).show()
