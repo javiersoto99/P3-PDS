@@ -66,7 +66,7 @@ class SignUpFragment : Fragment() {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
 
 
-                if (response.code() == 201) {
+                if (response.code() == 200) {
                     Toast.makeText(context, "El usuario fue creado exitosamente", Toast.LENGTH_SHORT).show()
 
                     mLoginviewModel.navigator.navigateToLogin()
