@@ -1,5 +1,6 @@
 package com.example.preguntadosicc.networking
 
+import com.example.preguntadosicc.main.invitaciones.FriendRequestInfo
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
 import com.example.preguntadosicc.main.models.FriendsInfo
 import okhttp3.ResponseBody
@@ -15,5 +16,20 @@ interface FriendsRemoteRepository {
     @POST("user/friendRequests")
     fun friendRequests(
         @Body info: FriendRequestsInfo
+    ): retrofit2.Call<ResponseBody>
+
+    @POST("user/createRequest")
+    fun createFriendRequest(
+        @Body info: FriendRequestInfo
+    ): retrofit2.Call<ResponseBody>
+
+    @POST("user/acceptRequest")
+    fun acceptFriendRequest(
+        @Body info: FriendRequestInfo
+    ): retrofit2.Call<ResponseBody>
+
+    @POST("user/rejectRequest")
+    fun rejectFriendRequest(
+        @Body info: FriendRequestInfo
     ): retrofit2.Call<ResponseBody>
 }

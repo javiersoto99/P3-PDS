@@ -1,6 +1,8 @@
 package com.example.preguntadosicc.login.fragments
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,6 +37,8 @@ class LogInFragment : Fragment() {
     }
 
     override fun onCreateView(
+
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -51,6 +55,10 @@ class LogInFragment : Fragment() {
             val password = view.findViewById<EditText>(R.id.passwordLogInEditText).text.toString()
             val user = LoginInfo(email , password)
 
+            val sharedPref = activity?.getSharedPreferences("user", Context.MODE_PRIVATE)
+            val editor = sharedPref?.edit()
+            editor?.putString("email", email)
+            editor?.apply()
             //llamado a la api login
             signIn(user)
 
