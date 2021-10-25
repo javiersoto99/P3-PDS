@@ -15,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.preguntadosicc.Login
 import com.example.preguntadosicc.MainActivity
+import com.example.preguntadosicc.QuizQuestionsActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
 import com.example.preguntadosicc.login.models.LoginInfo
@@ -46,6 +47,7 @@ class LogInFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
         val loginB = view.findViewById<Button>(R.id.loginBtn)
         val signupB = view.findViewById<Button>(R.id.signupBtn)
+        val offlineB = view.findViewById<Button>(R.id.offlineBtn)
 
 
         loginB.setOnClickListener{
@@ -70,6 +72,14 @@ class LogInFragment : Fragment() {
         signupB.setOnClickListener{
             mLoginviewModel.navigator.navigateToRegister()
         }
+
+        offlineB.setOnClickListener {
+            val intent = Intent(context,QuizQuestionsActivity::class.java)
+            startActivity(intent)
+
+
+        }
+
 
 
         return view
