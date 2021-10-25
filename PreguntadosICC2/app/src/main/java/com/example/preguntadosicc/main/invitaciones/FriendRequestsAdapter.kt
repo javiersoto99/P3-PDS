@@ -13,7 +13,6 @@ import com.example.preguntadosicc.R
 import com.example.preguntadosicc.networking.FriendsRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
 import com.google.gson.Gson
-import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -25,7 +24,7 @@ class FriendRequestsAdapter:
         private var requests = mutableListOf<FriendRequest>()
 
         inner class SolicitudesAmigosViewHolder(private val view : View): RecyclerView.ViewHolder(view){
-            val email = itemView.findViewById(R.id.nombreAmigoUnidoTextView) as TextView
+            val email = itemView.findViewById(R.id.nombre_amigo_tv) as TextView
             val acceptButton = itemView.findViewById(R.id.AceptarAmigoBtn) as Button
             val rejectButton = itemView.findViewById(R.id.RechazarAmigoBtn) as Button
         }
