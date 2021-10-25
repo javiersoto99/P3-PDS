@@ -1,6 +1,6 @@
 package com.example.preguntadosicc.main.invitaciones
 
 data class MatchRequest(
-    val player1 : String,
+    val email : String,
     val id : Int
 )

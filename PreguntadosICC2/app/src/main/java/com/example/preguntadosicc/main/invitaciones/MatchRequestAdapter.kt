@@ -40,7 +40,7 @@ class MatchRequestAdapter:
 
     override fun onBindViewHolder(holder: MatchRequestsViewHolder, position: Int) {
         val solicitud = requests[position]
-        holder.email.text = solicitud.player1
+        holder.email.text = solicitud.email
         holder.acceptButton.setOnClickListener {
 
             val sharedPref = it.context.getSharedPreferences("user", Context.MODE_PRIVATE)

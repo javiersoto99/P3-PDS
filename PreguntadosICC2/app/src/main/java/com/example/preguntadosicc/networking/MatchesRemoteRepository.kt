@@ -1,5 +1,6 @@
 package com.example.preguntadosicc.networking
 
+import com.example.preguntadosicc.main.invitaciones.CreateMatchInfo
 import com.example.preguntadosicc.main.invitaciones.MatchInvitationsInfo
 import com.example.preguntadosicc.main.invitaciones.MatchRequestsInfo
 import okhttp3.ResponseBody
@@ -20,5 +21,15 @@ interface MatchesRemoteRepository {
     @POST("match/rejectInvitation")
     fun matchRejectInvitation(
         @Body info: MatchInvitationsInfo
+    ): retrofit2.Call<ResponseBody>
+
+    @POST("match/create")
+    fun matchCreate(
+        @Body info: CreateMatchInfo
+    ): retrofit2.Call<ResponseBody>
+
+    @POST("match/getCategories")
+    fun getCategories(
+
     ): retrofit2.Call<ResponseBody>
 }
