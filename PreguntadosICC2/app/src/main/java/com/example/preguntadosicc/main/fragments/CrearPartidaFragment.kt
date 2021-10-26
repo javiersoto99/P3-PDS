@@ -14,6 +14,7 @@ import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.main.invitaciones.CategoriesResponse
 import com.example.preguntadosicc.main.invitaciones.CreateMatchInfo
+import com.example.preguntadosicc.main.invitaciones.createMatchResponse
 import com.example.preguntadosicc.navigation.Navigator
 import com.example.preguntadosicc.networking.MatchesRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
@@ -62,7 +63,12 @@ class CrearPartidaFragment : Fragment() {
                 if(response.code() == 200){
                     val categories = gson.fromJson(response.body()?.string(), CategoriesResponse::class.java)
 
-                    val adapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, categories.categories)
+                    val categoriesFixed = mutableListOf<String>()
+                    for(i in categories.categories){
+                        categoriesFixed.add(i.category)
+                    }
+
+                    val adapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, categoriesFixed)
                     categoriesSpinner.adapter = adapter
                 }
             }
@@ -85,7 +91,14 @@ class CrearPartidaFragment : Fragment() {
                     call: Call<ResponseBody>,
                     response: Response<ResponseBody>
                 ) {
-                    navigator.navigateToEmpezarPartida()
+                    val gson = Gson()
+
+                    if(response.code() == 200){
+                        val editor = sharedPref?.edit()
+                        editor?.putInt("matchID", gson.fromJson(response.body()?.string(), createMatchResponse::class.java).id)
+                        editor?.apply()
+                        navigator.navigateToEmpezarPartida()
+                    }
                 }
             })
         }

@@ -1,6 +1,5 @@
 package com.example.preguntadosicc.main.invitaciones
 
-data class MatchRequest(
-    val creador : String,
+data class createMatchResponse(
     val id : Int
 )
