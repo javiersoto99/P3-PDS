@@ -26,7 +26,7 @@ fun getOkClient(): OkHttpClient{
 fun getRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
     val retrofit = Retrofit.Builder().baseUrl("http://ec2-3-93-65-70.compute-1.amazonaws.com:4030/api/")
-        .client(getOkClient()) // http://ec2-3-86-31-232.compute-1.amazonaws.com:4030/api/ http://10.0.2.2:4030/api/
+        .client(getOkClient()) // http://ec2-3-93-65-70.compute-1.amazonaws.com:4030/api/ http://10.0.2.2:4030/api/
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     return retrofit
