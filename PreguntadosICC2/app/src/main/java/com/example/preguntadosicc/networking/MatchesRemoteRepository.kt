@@ -14,32 +14,32 @@ interface MatchesRemoteRepository {
     @POST("match/matchInvitations")
     fun matchInvitations(
         @Body info: MatchRequestsInfo
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/acceptInvitation")
     fun matchAcceptInvitation(
         @Body info: MatchInvitationsInfo
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/rejectInvitation")
     fun matchRejectInvitation(
         @Body info: MatchInvitationsInfo
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/create")
     fun matchCreate(
         @Body info: CreateMatchInfo
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/getCategories")
     fun getCategories(
 
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/invitePlayer")
     fun invitePlayer(
         @Body info: InviteFriendInfo
-    ): retrofit2.Call<ResponseBody>
+    ): Call<ResponseBody>
 
     @POST("match/players")
     fun getPlayers(

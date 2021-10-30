@@ -75,7 +75,7 @@ class InvitacionesFragment : Fragment() {
 
                         friendAdapter.setRequests(friendRequests.requests)
 
-                        Toast.makeText(context,"Friend Requests Loaded", Toast.LENGTH_LONG).show()
+                        //Toast.makeText(context,"Friend Requests Loaded", Toast.LENGTH_LONG).show()
 
 
 
@@ -119,7 +119,7 @@ class InvitacionesFragment : Fragment() {
 
                         matchAdapter.setRequests(matchRequests.matches)
 
-                        Toast.makeText(context,"Match Requests Loaded", Toast.LENGTH_LONG).show()
+                        //Toast.makeText(context,"Match Requests Loaded", Toast.LENGTH_LONG).show()
 
 
 

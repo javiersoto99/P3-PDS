@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.main.invitaciones.CategoriesResponse
@@ -76,8 +73,8 @@ class CrearPartidaFragment : Fragment() {
 
         crearPartidaB.setOnClickListener {
             val sharedPref = context?.getSharedPreferences("user", Context.MODE_PRIVATE)
-
-            val createMatchInfo = CreateMatchInfo(sharedPref?.getString("email", ""), categoriesSpinner.selectedItem.toString())
+            val matchName = view.findViewById<TextView>(R.id.nombrePartidaEdit)
+            val createMatchInfo = CreateMatchInfo(sharedPref?.getString("email", ""), categoriesSpinner.selectedItem.toString(), matchName.text.toString())
             matchService.matchCreate(createMatchInfo).enqueue(object : retrofit2.Callback<ResponseBody> {
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     Toast.makeText(

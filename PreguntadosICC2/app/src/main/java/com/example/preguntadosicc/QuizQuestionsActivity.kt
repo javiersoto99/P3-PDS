@@ -17,6 +17,7 @@ class QuizQuestionsActivity : AppCompatActivity() , View.OnClickListener{
     private var mQuestionsList: ArrayList<Question>? = null
     private var mSelectedOptionPosition : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
+        this.getSupportActionBar()?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
