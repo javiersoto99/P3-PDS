@@ -58,6 +58,11 @@ class InicioFragment : Fragment() {
             navigator.navigateToCrearPartida()
         }
 
+        val pregunta = view.findViewById<Button>(R.id.preguntaBtn)
+        pregunta.setOnClickListener{
+            navigator.navitageToPregunta()
+        }
+
         val cerrarSesionB = view.findViewById<Button>(R.id.CerrarSesionBtn)
 
         cerrarSesionB.setOnClickListener {

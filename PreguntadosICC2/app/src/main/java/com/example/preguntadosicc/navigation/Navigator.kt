@@ -24,5 +24,8 @@ class Navigator(val activity: MainActivity?) {
         activity?.findNavController(R.id.fragment)?.navigate(R.id.action_crearPartidaFragment_to_empezarPartidaFragment)
     }
 
+    fun navitageToPregunta(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_preguntasFragment)
+    }
 
 }

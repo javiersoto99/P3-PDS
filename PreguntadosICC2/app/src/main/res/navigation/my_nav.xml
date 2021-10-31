@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_crearPartidaFragment"
             app:destination="@id/crearPartidaFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_preguntasFragment"
+            app:destination="@id/preguntasFragment" />
     </fragment>
     <fragment
         android:id="@+id/amigosFragment"
@@ -44,4 +47,9 @@
         android:name="com.example.preguntadosicc.main.fragments.EmpezarPartidaFragment"
         android:label="fragment_empezar_partida"
         tools:layout="@layout/fragment_empezar_partida" />
+    <fragment
+        android:id="@+id/preguntasFragment"
+        android:name="com.example.preguntadosicc.main.preguntas.PreguntasFragment"
+        android:label="fragment_preguntas"
+        tools:layout="@layout/fragment_preguntas" />
 </navigation>
