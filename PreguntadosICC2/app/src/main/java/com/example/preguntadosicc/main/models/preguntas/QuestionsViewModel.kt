@@ -21,7 +21,7 @@ class QuestionsViewModel(application: Application): AndroidViewModel(application
     val currentQuestion = MutableLiveData<QuestionResponse>()
 
     init {
-        getQuestion(1)
+        //getQuestion(1)
         //getQuestionAlternatives(1)
     }
 

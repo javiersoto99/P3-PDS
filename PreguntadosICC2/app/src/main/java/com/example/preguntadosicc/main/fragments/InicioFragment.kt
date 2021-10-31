@@ -13,12 +13,15 @@ import com.example.preguntadosicc.Login
 import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
+import com.example.preguntadosicc.main.models.preguntas.QuestionsViewModel
 import com.example.preguntadosicc.navigation.LoginNavigator
 import com.example.preguntadosicc.navigation.Navigator
 
 class InicioFragment : Fragment() {
 
     private val logInViewModel: LoginViewModel by activityViewModels()
+    private val questionViewModel: QuestionsViewModel by activityViewModels()
+
 
     lateinit var navigator : Navigator
 
@@ -26,6 +29,8 @@ class InicioFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setNavigator(activity as MainActivity)
         logInViewModel.getCurrentUser()
+        var random = (1..4).random()
+        questionViewModel.getQuestion(random)
     }
 
     override fun onCreateView(

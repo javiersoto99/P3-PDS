@@ -100,6 +100,9 @@ class PreguntasFragment: Fragment(), OnClickListener {
                 if(response.code() == 401){
                     Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
                 }
+                if(response.code() == 500){
+                    Toast.makeText(context, "Internal Server Error", Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }
