@@ -29,8 +29,6 @@ class InicioFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setNavigator(activity as MainActivity)
         logInViewModel.getCurrentUser()
-        var random = (1..4).random()
-        questionViewModel.getQuestion(random)
     }
 
     override fun onCreateView(
@@ -63,10 +61,6 @@ class InicioFragment : Fragment() {
             navigator.navigateToCrearPartida()
         }
 
-        val pregunta = view.findViewById<Button>(R.id.preguntaBtn)
-        pregunta.setOnClickListener{
-            navigator.navitageToPregunta()
-        }
 
         val cerrarSesionB = view.findViewById<Button>(R.id.CerrarSesionBtn)
 
@@ -77,9 +71,15 @@ class InicioFragment : Fragment() {
 
         }
 
+
         val verPerfilBtn = view.findViewById<Button>(R.id.VerPerfilBtn)
         verPerfilBtn.setOnClickListener {
             navigator.navigateToVerPerfil()
+        }
+
+        val activas = view.findViewById<Button>(R.id.ActivasBtn)
+        activas.setOnClickListener{
+            navigator.navigateToPartidasACtivas()
         }
 
         return view

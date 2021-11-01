@@ -64,6 +64,7 @@ class QuestionsViewModel(application: Application): AndroidViewModel(application
 
 
     fun getQuestionAlternatives(id:Int){
+        currentAlternatives.clear()
         val questionsService = getRetrofit(okHttpClient = OkHttpClient()).create(
             QuestionRemoteRepository::class.java)
 

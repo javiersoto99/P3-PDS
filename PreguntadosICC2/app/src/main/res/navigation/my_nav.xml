@@ -19,12 +19,16 @@
         <action
             android:id="@+id/action_inicioFragment_to_crearPartidaFragment"
             app:destination="@id/crearPartidaFragment" />
-        <action
+        <action 
             android:id="@+id/action_inicioFragment_to_preguntasFragment"
             app:destination="@id/preguntasFragment" />
         <action
             android:id="@+id/action_inicioFragment_to_verPerfilFragment"
             app:destination="@id/verPerfilFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_partidasActivasFragment"
+            app:destination="@id/partidasActivasFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/amigosFragment"
@@ -60,4 +64,14 @@
         android:name="com.example.preguntadosicc.main.Perfil.VerPerfilFragment"
         android:label="fragment_ver_perfil"
         tools:layout="@layout/fragment_ver_perfil" />
+    <fragment
+        android:id="@+id/partidasActivasFragment"
+        android:name="com.example.preguntadosicc.main.partidas.PartidasActivasFragment"
+        android:label="fragment_partidas_activas"
+        tools:layout="@layout/fragment_partidas_activas" >
+        <action
+            android:id="@+id/action_partidasActivasFragment_to_preguntasFragment"
+            app:destination="@id/preguntasFragment" />
+    </fragment>
+
 </navigation>
