@@ -55,7 +55,7 @@ class PartidasActivasFragment: Fragment(), OnClickListener {
         if (item is PartidasResponse){
 
             Toast.makeText(context, item.id.toString() + " " + item.creador, Toast.LENGTH_SHORT).show()
-            
+
         }
     }
 }

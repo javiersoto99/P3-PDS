@@ -20,6 +20,9 @@ class PartidasViewModel(application: Application): AndroidViewModel(application)
 
     //val currentMatch = MutableLiveData<PartidasResponse>()
 
+    init {
+
+    }
 
     fun addCurrentMatches(partida: PartidasResponse){
         currentMatches.add(partida)
@@ -27,7 +30,9 @@ class PartidasViewModel(application: Application): AndroidViewModel(application)
     }
 
 
+
     fun getPartidas(email:String){
+        currentMatches.clear()
         val partidasService = getRetrofit(okHttpClient = OkHttpClient()).create(MatchesRemoteRepository::class.java)
 
         partidasService.getActiveMatches(email).enqueue(object : Callback<ResponseBody> {
