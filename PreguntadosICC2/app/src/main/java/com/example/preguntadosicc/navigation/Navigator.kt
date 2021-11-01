@@ -25,7 +25,7 @@ class Navigator(val activity: MainActivity?) {
     }
 
     fun navitageToPregunta(){
-        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_preguntasFragment)
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_partidasActivasFragment_to_preguntasFragment)
     }
 
     fun navigateToPartidasACtivas(){

@@ -20,9 +20,6 @@
             android:id="@+id/action_inicioFragment_to_crearPartidaFragment"
             app:destination="@id/crearPartidaFragment" />
         <action
-            android:id="@+id/action_inicioFragment_to_preguntasFragment"
-            app:destination="@id/preguntasFragment" />
-        <action
             android:id="@+id/action_inicioFragment_to_partidasActivasFragment"
             app:destination="@id/partidasActivasFragment" />
     </fragment>
@@ -59,5 +56,9 @@
         android:id="@+id/partidasActivasFragment"
         android:name="com.example.preguntadosicc.main.partidas.PartidasActivasFragment"
         android:label="fragment_partidas_activas"
-        tools:layout="@layout/fragment_partidas_activas" />
+        tools:layout="@layout/fragment_partidas_activas" >
+        <action
+            android:id="@+id/action_partidasActivasFragment_to_preguntasFragment"
+            app:destination="@id/preguntasFragment" />
+    </fragment>
 </navigation>

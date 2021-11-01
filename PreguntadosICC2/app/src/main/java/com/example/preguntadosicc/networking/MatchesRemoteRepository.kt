@@ -52,4 +52,9 @@ interface MatchesRemoteRepository {
     fun getActiveMatches(
         @Path("email") email: String
     ): Call<ResponseBody>
+
+    @POST("match/activeMatches/turn/{id}/{email}")
+    fun checkUserTurn(
+        @Path("id") id:Int, @Path("email") email: String
+    ): Call<ResponseBody>
 }
