@@ -8,7 +8,9 @@ import com.example.preguntadosicc.main.models.GetPlayersInfo
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface MatchesRemoteRepository {
     @POST("match/matchInvitations")
@@ -44,5 +46,10 @@ interface MatchesRemoteRepository {
     @POST("match/players")
     fun getPlayers(
         @Body info: GetPlayersInfo
+    ): Call<ResponseBody>
+
+    @GET("match/activeMatches/{email}")
+    fun getActiveMatches(
+        @Path("email") email: String
     ): Call<ResponseBody>
 }

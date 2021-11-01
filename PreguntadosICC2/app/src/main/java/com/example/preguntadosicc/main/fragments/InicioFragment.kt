@@ -29,7 +29,7 @@ class InicioFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setNavigator(activity as MainActivity)
         logInViewModel.getCurrentUser()
-        var random = (1..4).random()
+        var random = (1..14).random()
         questionViewModel.getQuestion(random)
     }
 
@@ -75,6 +75,11 @@ class InicioFragment : Fragment() {
             val intent = Intent(activity, Login::class.java)
             this.startActivity(intent)
 
+        }
+
+        val activas = view.findViewById<Button>(R.id.ActivasBtn)
+        activas.setOnClickListener{
+            navigator.navigateToPartidasACtivas()
         }
 
         return view
