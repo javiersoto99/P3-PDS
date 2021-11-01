@@ -32,4 +32,9 @@ class Navigator(val activity: MainActivity?) {
         activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_partidasActivasFragment)
     }
 
+    fun navigateToVerPerfil(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_verPerfilFragment)
+
+    }
+
 }

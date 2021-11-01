@@ -71,6 +71,12 @@ class InicioFragment : Fragment() {
 
         }
 
+
+        val verPerfilBtn = view.findViewById<Button>(R.id.VerPerfilBtn)
+        verPerfilBtn.setOnClickListener {
+            navigator.navigateToVerPerfil()
+        }
+
         val activas = view.findViewById<Button>(R.id.ActivasBtn)
         activas.setOnClickListener{
             navigator.navigateToPartidasACtivas()
