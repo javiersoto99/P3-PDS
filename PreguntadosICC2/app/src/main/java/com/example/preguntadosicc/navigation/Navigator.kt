@@ -28,4 +28,9 @@ class Navigator(val activity: MainActivity?) {
         activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_preguntasFragment)
     }
 
+    fun navigateToVerPerfil(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_verPerfilFragment)
+
+    }
+
 }

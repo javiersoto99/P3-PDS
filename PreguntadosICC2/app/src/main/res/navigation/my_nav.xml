@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_preguntasFragment"
             app:destination="@id/preguntasFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_verPerfilFragment"
+            app:destination="@id/verPerfilFragment" />
     </fragment>
     <fragment
         android:id="@+id/amigosFragment"
@@ -52,4 +55,9 @@
         android:name="com.example.preguntadosicc.main.preguntas.PreguntasFragment"
         android:label="fragment_preguntas"
         tools:layout="@layout/fragment_preguntas" />
+    <fragment
+        android:id="@+id/verPerfilFragment"
+        android:name="com.example.preguntadosicc.main.Perfil.VerPerfilFragment"
+        android:label="fragment_ver_perfil"
+        tools:layout="@layout/fragment_ver_perfil" />
 </navigation>
