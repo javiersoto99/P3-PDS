@@ -18,7 +18,7 @@ class PartidasViewModel(application: Application): AndroidViewModel(application)
     val currentMatches = mutableListOf<PartidasResponse>()
     val myCurrentMatches = MutableLiveData<MutableList<PartidasResponse>>()
 
-    //val currentMatch = MutableLiveData<PartidasResponse>()
+    val currentMatch = MutableLiveData<PartidasResponse>()
 
     init {
 
@@ -55,5 +55,9 @@ class PartidasViewModel(application: Application): AndroidViewModel(application)
                 }
             }
         })
+    }
+
+    fun setCurrentMatch(partida : PartidasResponse){
+        currentMatch.postValue(partida)
     }
 }

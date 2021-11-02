@@ -68,8 +68,9 @@ class PartidasActivasFragment: Fragment(), OnClickListener {
 
     override fun onClickItem(item: Any) {
         if (item is PartidasResponse){
+            partidasViewModel.setCurrentMatch(item)
 
-            Toast.makeText(context, item.id.toString() + " " + item.creador, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, item.id.toString() + " " + item.creador, Toast.LENGTH_SHORT).show()
             val turnService = getRetrofit(okHttpClient = OkHttpClient()).create(
                 MatchesRemoteRepository::class.java)
             logInViewModel.currentUser.observe(viewLifecycleOwner,{
