@@ -33,7 +33,7 @@ object Constants {
         questionsList.add(que13)
         val que14 = Question(14, "Matematica", "Cual es una propiedad de la Matriz Transpuesta?","(AB)t = BtA", "(rA)t = rA", "(At)t=A","(A + B)t = A + B",3)
         questionsList.add(que14)
-        val que15 = Question(15,"Computacion", "Luego de realizar la implementación de una tarea solicitada, usted necesitara guardar el trabajo realizado cual de los siguientes comandos de GIT utilizaría?", "Pull", "Commit", "Merge","NA", 2)
+        val que15 = Question(15,"Computacion", "Luego de realizar la implementación de una tarea solicitada usted necesitara guardar el trabajo realizado, cual de los siguientes comandos de GIT utilizaría?", "Pull", "Commit", "Merge","NA", 2)
         questionsList.add(que15)
 
         return questionsList
