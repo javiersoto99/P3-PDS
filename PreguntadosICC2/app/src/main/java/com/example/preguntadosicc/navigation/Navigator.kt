@@ -37,4 +37,8 @@ class Navigator(val activity: MainActivity?) {
 
     }
 
+    fun navigateToDetalles(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_verPerfilFragment_to_detallesFragment)
+    }
+
 }

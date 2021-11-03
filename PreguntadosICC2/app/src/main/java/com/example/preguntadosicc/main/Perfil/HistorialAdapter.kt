@@ -25,7 +25,6 @@ class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolde
     }
 
     override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
-        //ToDo
 
     }
 
