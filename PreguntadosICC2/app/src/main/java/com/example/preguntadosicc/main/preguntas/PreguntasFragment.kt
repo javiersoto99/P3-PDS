@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.OnClickListener
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
+import com.example.preguntadosicc.main.models.partidas.PartidasViewModel
 import com.example.preguntadosicc.main.models.preguntas.AlternativeResponse
 import com.example.preguntadosicc.main.models.preguntas.AnswerInfo
 import com.example.preguntadosicc.main.models.preguntas.QuestionsViewModel
@@ -30,8 +31,10 @@ class PreguntasFragment: Fragment(), OnClickListener {
     private lateinit var questionAdapter: PreguntasRecyclerViewAdapter
 
 
+
     private val logInViewModel: LoginViewModel by activityViewModels()
     private val questionsViewModel : QuestionsViewModel by activityViewModels()
+    private val partidasViewModel : PartidasViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,33 +81,44 @@ class PreguntasFragment: Fragment(), OnClickListener {
 
     fun validateQuestionAnswer(answer_id : Int, question_id : Int){
 
-        val answer = AnswerInfo(answer_id,question_id)
-
         val questionService = getRetrofit(okHttpClient = OkHttpClient()).create(
             QuestionRemoteRepository::class.java
         )
 
-        questionService.checkAnswer(answer).enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>, t:Throwable){
-                println(
-                    t.message + "GET validar respuesta"
-                )
+        partidasViewModel.currentMatch.observe(viewLifecycleOwner,{
 
-            }
+            val match_id = it.id
+            logInViewModel.currentUser.observe(viewLifecycleOwner,{
+            val answer = AnswerInfo(answer_id,question_id, match_id, it.email)
+            questionService.checkAnswer(answer).enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t:Throwable){
+                    println(
+                        t.message + "GET validar respuesta"
+                    )
 
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                }
 
-                if (response.code() == 200){
-                    Toast.makeText(context, "Respuesta Correcta", Toast.LENGTH_SHORT).show()
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+
+
+                    if (response.code() == 200){
+                        Toast.makeText(context, "Correcta " + answer.match_id + " " + answer.user_email, Toast.LENGTH_SHORT).show()
+                    }
+                    if(response.code() == 401){
+                            Toast.makeText(context, "Incorrecta " + answer.match_id + " " + answer.user_email, Toast.LENGTH_SHORT).show()
+                    }
+                    if(response.code() == 500){
+                        Toast.makeText(context, "Internal Server Error", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                if(response.code() == 401){
-                    Toast.makeText(context, "Respuesta Incorrecta", Toast.LENGTH_SHORT).show()
-                }
-                if(response.code() == 500){
-                    Toast.makeText(context, "Internal Server Error", Toast.LENGTH_SHORT).show()
-                }
-            }
+            })
+            })
         })
+
+
+
+
+
     }
 }
 
