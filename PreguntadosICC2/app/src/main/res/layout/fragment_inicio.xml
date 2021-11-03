@@ -1,106 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.fragments.InicioFragment">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/HolaTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main.fragments.InicioFragment">
 
-    <Button
-        android:id="@+id/VerPerfilBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="Ver Perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/HolaTxt" />
+        <TextView
+            android:id="@+id/HolaTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/CrearPartidaBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Crear Partida"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VerPerfilBtn" />
+        <Button
+            android:id="@+id/VerPerfilBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:text="Ver Perfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/HolaTxt" />
 
-    <Button
-        android:id="@+id/ActivasBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Partidas Activas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CrearPartidaBtn" />
+        <Button
+            android:id="@+id/CrearPartidaBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Crear Partida"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/VerPerfilBtn" />
 
-    <Button
-        android:id="@+id/AnterioresBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Partidas Anteriores"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ActivasBtn" />
+        <Button
+            android:id="@+id/ActivasBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Partidas Activas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CrearPartidaBtn" />
 
-    <Button
-        android:id="@+id/preguntaBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Fragment Pregunta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AnterioresBtn" />
+        <Button
+            android:id="@+id/AnterioresBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Partidas Anteriores"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ActivasBtn" />
 
-    <Button
-        android:id="@+id/AmigosBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Amigos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/preguntaBtn" />
+        <Button
+            android:id="@+id/preguntaBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Fragment Pregunta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AnterioresBtn" />
 
-    <Button
-        android:id="@+id/InvitacionesBtn"
-        android:layout_width="208dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
-        android:text="Invitaciones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/AmigosBtn" />
+        <Button
+            android:id="@+id/AmigosBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Amigos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preguntaBtn" />
 
-    <Button
-        android:id="@+id/CerrarSesionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Cerrar Sesion"
-        app:backgroundTint="#F44336"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InvitacionesBtn" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/InvitacionesBtn"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="77dp"
+            android:text="Invitaciones"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/AmigosBtn" />
+
+        <Button
+            android:id="@+id/CerrarSesionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Cerrar Sesion"
+            app:backgroundTint="#F44336"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InvitacionesBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
