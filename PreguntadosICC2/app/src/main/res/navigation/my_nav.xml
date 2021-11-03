@@ -63,7 +63,11 @@
         android:id="@+id/verPerfilFragment"
         android:name="com.example.preguntadosicc.main.Perfil.VerPerfilFragment"
         android:label="fragment_ver_perfil"
-        tools:layout="@layout/fragment_ver_perfil" />
+        tools:layout="@layout/fragment_ver_perfil" >
+        <action
+            android:id="@+id/action_verPerfilFragment_to_detallesFragment"
+            app:destination="@id/detallesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/partidasActivasFragment"
         android:name="com.example.preguntadosicc.main.partidas.PartidasActivasFragment"
@@ -73,5 +77,10 @@
             android:id="@+id/action_partidasActivasFragment_to_preguntasFragment"
             app:destination="@id/preguntasFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/detallesFragment"
+        android:name="com.example.preguntadosicc.main.Perfil.DetallesFragment"
+        android:label="fragment_detalles"
+        tools:layout="@layout/fragment_detalles" />
 
 </navigation>

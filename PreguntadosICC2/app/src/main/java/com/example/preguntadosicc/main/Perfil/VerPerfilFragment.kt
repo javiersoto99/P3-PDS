@@ -27,6 +27,8 @@ class VerPerfilFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
+
+
         return view
     }
 
