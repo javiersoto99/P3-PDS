@@ -6,12 +6,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.main.models.Friend
+import com.example.preguntadosicc.main.models.partidas.PartidasResponse
+import com.example.preguntadosicc.navigation.Navigator
 
 class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
+    lateinit var navigator : Navigator
 
-    private var partidas = mutableListOf<String>()
+    private var partidas = mutableListOf<PartidasResponse>()
 
     inner class HistorialViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val resultado = itemView.findViewById(R.id.resutado_tv) as TextView
@@ -25,11 +29,18 @@ class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolde
     }
 
     override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
+        holder.detallesBtn.setOnClickListener {
+
+        }
 
     }
 
     override fun getItemCount(): Int {
         return partidas.size
+    }
+
+    fun setNavigator(activity: MainActivity?) {
+        navigator = Navigator(activity)
     }
 
 }

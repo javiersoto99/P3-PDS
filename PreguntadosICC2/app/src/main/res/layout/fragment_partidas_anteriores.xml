@@ -4,30 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.partidas.PartidasActivasFragment">
+    tools:context=".main.partidas.PartidasAnterioresFragment">
 
 
     <TextView
-        android:id="@+id/question_text"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Partidas Activas"
-        android:textSize="24dp"
+        android:layout_marginTop="40dp"
+        android:text="Partidas Anteriores"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/partidas_activas_recycler_view"
+        android:id="@+id/anteriores_RV"
         android:layout_width="409dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="128dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/question_text"
-        tools:listitem="@layout/partidas_activas_view_holder" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:listitem="@layout/anteriores_view_holder" />
 </androidx.constraintlayout.widget.ConstraintLayout>

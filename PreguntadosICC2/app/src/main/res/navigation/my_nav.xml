@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_partidasActivasFragment"
             app:destination="@id/partidasActivasFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_partidasAnterioresFragment"
+            app:destination="@id/partidasAnterioresFragment" />
 
     </fragment>
     <fragment
@@ -82,5 +85,10 @@
         android:name="com.example.preguntadosicc.main.Perfil.DetallesFragment"
         android:label="fragment_detalles"
         tools:layout="@layout/fragment_detalles" />
+    <fragment
+        android:id="@+id/partidasAnterioresFragment"
+        android:name="com.example.preguntadosicc.main.partidas.PartidasAnterioresFragment"
+        android:label="fragment_partidas_anteriores"
+        tools:layout="@layout/fragment_partidas_anteriores" />
 
 </navigation>
