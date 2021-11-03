@@ -102,10 +102,12 @@ class PreguntasFragment: Fragment(), OnClickListener {
 
 
                     if (response.code() == 200){
-                        Toast.makeText(context, "Correcta " + answer.match_id + " " + answer.user_email + " " + answer.answer_id, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Correcta", Toast.LENGTH_SHORT).show()
+                        getActivity()?.onBackPressed();
                     }
                     if(response.code() == 401){
-                            Toast.makeText(context, "Incorrecta " + answer.match_id + " " + answer.user_email + " " + answer.answer_id, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Incorrecta", Toast.LENGTH_SHORT).show()
+                        getActivity()?.onBackPressed();
                     }
                     if(response.code() == 500){
                         Toast.makeText(context, "Internal Server Error", Toast.LENGTH_SHORT).show()
