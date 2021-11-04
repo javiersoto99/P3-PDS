@@ -5,16 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
 import com.example.preguntadosicc.main.invitaciones.FriendRequestInfo
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
 import com.example.preguntadosicc.main.models.FriendResponse
 import com.example.preguntadosicc.main.models.FriendsInfo
+import com.example.preguntadosicc.navigation.Navigator
 import com.example.preguntadosicc.networking.FriendsRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
 import com.google.gson.Gson
@@ -30,9 +33,11 @@ class EmpezarPartidaFragment : Fragment() {
     private lateinit var adapter: InvitarAmigosAdapter
 
     private val logInViewModel: LoginViewModel by activityViewModels()
+    lateinit var navigator : Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setNavigator(activity as MainActivity)
         logInViewModel.getCurrentUser()
     }
 
@@ -77,10 +82,16 @@ class EmpezarPartidaFragment : Fragment() {
             })
         })
 
-
+        val empezarBtn = view.findViewById<Button>(R.id.empezarBtn)
+        empezarBtn.setOnClickListener{
+            navigator.navigateFromPartidaToInicio()
+        }
 
         return view
     }
 
+    fun setNavigator(activity: MainActivity?) {
+        navigator = Navigator(activity)
+    }
 
 }

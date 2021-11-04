@@ -2,6 +2,10 @@ package com.example.preguntadosicc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.example.preguntadosicc.main.Perfil.VerPerfilFragment
+import com.example.preguntadosicc.main.amigos.AmigosFragment
+import com.example.preguntadosicc.main.fragments.InicioFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -11,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Bottom nav bar
+
 
         //top nav bar
         val top_nav = findViewById<MaterialToolbar>(R.id.topAppBar)
@@ -24,6 +28,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
-
+    private fun makeCurrentFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
+        replace(R.id.fragment, fragment)
+        commit()
+    }
 }

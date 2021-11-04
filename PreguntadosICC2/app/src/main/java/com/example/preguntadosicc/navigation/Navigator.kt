@@ -44,4 +44,7 @@ class Navigator(val activity: MainActivity?) {
         activity?.findNavController(R.id.fragment)?.navigate(R.id.action_inicioFragment_to_partidasAnterioresFragment)
     }
 
+    fun navigateFromPartidaToInicio(){
+        activity?.findNavController(R.id.fragment)?.navigate(R.id.action_empezarPartidaFragment_to_inicioFragment)
+    }
 }

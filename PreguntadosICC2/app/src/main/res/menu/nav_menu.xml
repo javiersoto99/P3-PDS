@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/ic_deck"
-        android:icon="@drawable/ic_baseline_front_hand_24"
-        android:title="Deck"/>
+        android:id="@+id/ic_friend"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:title="Amigos"/>
     <item
-        android:id="@+id/ic_rooms"
-        android:icon="@drawable/ic_baseline_room_24"
-        android:title="Rooms"/>
+        android:id="@+id/ic_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
     <item
-        android:id="@+id/ic_settings"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Settings"/>
+        android:id="@+id/ic_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Perfil"/>
 
 </menu>

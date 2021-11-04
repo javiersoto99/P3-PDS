@@ -56,7 +56,11 @@
         android:id="@+id/empezarPartidaFragment"
         android:name="com.example.preguntadosicc.main.fragments.EmpezarPartidaFragment"
         android:label="fragment_empezar_partida"
-        tools:layout="@layout/fragment_empezar_partida" />
+        tools:layout="@layout/fragment_empezar_partida" >
+        <action
+            android:id="@+id/action_empezarPartidaFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/preguntasFragment"
         android:name="com.example.preguntadosicc.main.preguntas.PreguntasFragment"

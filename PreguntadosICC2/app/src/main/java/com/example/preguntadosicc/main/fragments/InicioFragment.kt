@@ -61,17 +61,6 @@ class InicioFragment : Fragment() {
             navigator.navigateToCrearPartida()
         }
 
-
-        val cerrarSesionB = view.findViewById<Button>(R.id.CerrarSesionBtn)
-
-        cerrarSesionB.setOnClickListener {
-            logInViewModel.logOut()
-            val intent = Intent(activity, Login::class.java)
-            this.startActivity(intent)
-
-        }
-
-
         val verPerfilBtn = view.findViewById<Button>(R.id.VerPerfilBtn)
         verPerfilBtn.setOnClickListener {
             navigator.navigateToVerPerfil()
