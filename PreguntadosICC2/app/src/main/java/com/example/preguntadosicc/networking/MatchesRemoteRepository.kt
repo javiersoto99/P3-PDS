@@ -69,4 +69,9 @@ interface MatchesRemoteRepository {
     fun matchStatistics(
         @Body info : AnswerInfo
     ): Call<ResponseBody>
+
+    @POST("match/matchCategory")
+    fun matchCategory(
+        @Body info : GetPlayersInfo
+    ): Call<ResponseBody>
 }

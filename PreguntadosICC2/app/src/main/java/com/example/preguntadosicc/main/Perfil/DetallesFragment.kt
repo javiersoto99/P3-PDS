@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
+import com.example.preguntadosicc.main.models.GetPlayersInfo
 import com.example.preguntadosicc.main.partidas.AnterioresAdapter
 import com.example.preguntadosicc.networking.MatchesRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
@@ -61,6 +63,27 @@ class DetallesFragment : Fragment() {
                 if(response.code() == 200){
                     val answerRequest = gson.fromJson(response.body()?.string(), AnswerResponse::class.java)
                     adapter.setRequests(answerRequest.preguntas)
+                }
+            }
+        })
+
+        val requestInfo2 = GetPlayersInfo(sharedPref?.getInt("matchID2", 0))
+
+        matchService.matchCategory(requestInfo2).enqueue(object : Callback<ResponseBody> {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(
+                    context,
+                    t.message,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                val gson = Gson()
+
+                if(response.code() == 200){
+                    val category = gson.fromJson(response.body()?.string(), Category::class.java)
+                    view.findViewById<TextView>(R.id.categoria_partida_tv).text = category.category
                 }
             }
         })
