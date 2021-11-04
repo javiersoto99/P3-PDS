@@ -71,11 +71,6 @@ class InicioFragment : Fragment() {
             navigator.navigateToPartidasACtivas()
         }
 
-        val anteriores = view.findViewById<Button>(R.id.AnterioresBtn)
-        anteriores.setOnClickListener {
-            navigator.navigateToPartidasAnteriores()
-        }
-
         return view
     }
 
