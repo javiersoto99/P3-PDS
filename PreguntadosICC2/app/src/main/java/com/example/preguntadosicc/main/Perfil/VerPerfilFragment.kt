@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.preguntadosicc.MainActivity
 import com.example.preguntadosicc.OnClickListener
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
@@ -16,6 +17,7 @@ import com.example.preguntadosicc.main.amigos.AmigosAdapter
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
 import com.example.preguntadosicc.main.invitaciones.Match
 import com.example.preguntadosicc.main.invitaciones.MatchFinishedResponse
+import com.example.preguntadosicc.navigation.Navigator
 import com.example.preguntadosicc.networking.MatchesRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
 import com.google.gson.Gson
@@ -32,9 +34,12 @@ class VerPerfilFragment : Fragment(), OnClickListener {
 
     private val logInViewModel: LoginViewModel by activityViewModels()
 
+    lateinit var navigator : Navigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         logInViewModel.getCurrentUser()
+        setNavigator(activity as MainActivity)
     }
 
     override fun onCreateView(
@@ -83,8 +88,14 @@ class VerPerfilFragment : Fragment(), OnClickListener {
     }
 
     override fun onClickItem(item: Any) {
+        navigator.navigateToDetalles()
+
         if (item is Match){
             
         }
+    }
+
+    fun setNavigator(activity: MainActivity?) {
+        navigator = Navigator(activity)
     }
 }
