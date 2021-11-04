@@ -12,7 +12,7 @@ import com.example.preguntadosicc.main.partidas.AnterioresAdapter
 
 class DetallesAdapter: RecyclerView.Adapter<DetallesAdapter.DetallesViewHolder>() {
 
-    private var partidas = mutableListOf<Match>()
+    private var answers = mutableListOf<Answer>()
 
     inner class DetallesViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val pregunta = itemView.findViewById(R.id.pregunta_tv) as TextView
@@ -26,11 +26,19 @@ class DetallesAdapter: RecyclerView.Adapter<DetallesAdapter.DetallesViewHolder>(
     }
 
     override fun onBindViewHolder(holder: DetallesViewHolder, position: Int) {
-        val partida = partidas[position]
+        val answer = answers[position]
+
+        holder.pregunta.text = answer.question_body
+        holder.respuesta.text = answer.answer_body
     }
 
     override fun getItemCount(): Int {
-        return partidas.size
+        return answers.size
+    }
+
+    fun setRequests(answers : MutableList<Answer>){
+        this.answers = answers
+        this.notifyDataSetChanged()
     }
 
 

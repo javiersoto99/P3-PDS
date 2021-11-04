@@ -1,5 +1,6 @@
 package com.example.preguntadosicc.networking
 
+import com.example.preguntadosicc.main.Perfil.AnswerInfo
 import com.example.preguntadosicc.main.fragments.InviteFriendInfo
 import com.example.preguntadosicc.main.invitaciones.CreateMatchInfo
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
@@ -62,5 +63,10 @@ interface MatchesRemoteRepository {
     @POST("match/finishedMatches")
     fun finishedMatches(
         @Body info: FriendRequestsInfo
+    ): Call<ResponseBody>
+
+    @POST("match/matchStatistics")
+    fun matchStatistics(
+        @Body info : AnswerInfo
     ): Call<ResponseBody>
 }
