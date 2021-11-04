@@ -2,6 +2,7 @@ package com.example.preguntadosicc.networking
 
 import com.example.preguntadosicc.main.fragments.InviteFriendInfo
 import com.example.preguntadosicc.main.invitaciones.CreateMatchInfo
+import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
 import com.example.preguntadosicc.main.invitaciones.MatchInvitationsInfo
 import com.example.preguntadosicc.main.invitaciones.MatchRequestsInfo
 import com.example.preguntadosicc.main.models.GetPlayersInfo
@@ -56,5 +57,10 @@ interface MatchesRemoteRepository {
     @POST("match/activeMatches/turn/{id}/{email}")
     fun checkUserTurn(
         @Path("id") id:Int, @Path("email") email: String
+    ): Call<ResponseBody>
+
+    @POST("match/finishedMatches")
+    fun finishedMatches(
+        @Body info: FriendRequestsInfo
     ): Call<ResponseBody>
 }

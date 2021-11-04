@@ -5,15 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
+import com.example.preguntadosicc.login.LoginViewModel
 import com.example.preguntadosicc.main.amigos.AmigosAdapter
+import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
+import com.example.preguntadosicc.main.invitaciones.MatchFinishedResponse
+import com.example.preguntadosicc.networking.MatchesRemoteRepository
+import com.example.preguntadosicc.networking.getRetrofit
+import com.google.gson.Gson
+import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class VerPerfilFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HistorialAdapter
+
+    private val logInViewModel: LoginViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        logInViewModel.getCurrentUser()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +47,43 @@ class VerPerfilFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        // LOAD FINISHED MATCHES
 
+        logInViewModel.currentUser.observe(viewLifecycleOwner, {
+            val email = FriendRequestsInfo(it.email)
+
+            val matchService = getRetrofit(okHttpClient = OkHttpClient()).create(MatchesRemoteRepository::class.java)
+
+            matchService.finishedMatches(email).enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Toast.makeText(
+                        context,
+                        t.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    val gson = Gson()
+
+                    if (response.code() == 200){
+                        val matchFinishedRequest = gson.fromJson(response.body()?.string(), MatchFinishedResponse::class.java)
+
+                        Toast.makeText(
+                            context,
+                            matchFinishedRequest.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        println(matchFinishedRequest)
+                        adapter.setRequests(matchFinishedRequest.partidas)
+                    }
+                }
+            })
+        })
 
         return view
     }
