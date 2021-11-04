@@ -20,7 +20,8 @@ class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolde
 
     inner class HistorialViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val resultado = itemView.findViewById(R.id.resutado_tv) as TextView
-        val detallesBtn = itemView.findViewById<Button>(R.id.detalles_btn)
+        val ganador = itemView.findViewById(R.id.ganador_tv) as TextView
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistorialViewHolder {
@@ -32,11 +33,10 @@ class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolde
     override fun onBindViewHolder(holder: HistorialViewHolder, position: Int) {
         val partida = partidas[position]
 
-        holder.resultado.text = partida.nombre + partida.ganador
+        holder.resultado.text = partida.nombre
+        holder.ganador.text = partida.ganador
 
-        holder.detallesBtn.setOnClickListener {
 
-        }
 
     }
 
