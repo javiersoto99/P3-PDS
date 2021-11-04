@@ -55,28 +55,6 @@
             app:layout_constraintTop_toBottomOf="@+id/CrearPartidaBtn" />
 
         <Button
-            android:id="@+id/AnterioresBtn"
-            android:layout_width="208dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Partidas Anteriores"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ActivasBtn" />
-
-        <Button
-            android:id="@+id/preguntaBtn"
-            android:layout_width="208dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Fragment Pregunta"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AnterioresBtn" />
-
-        <Button
             android:id="@+id/AmigosBtn"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
@@ -85,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/preguntaBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/ActivasBtn" />
 
         <Button
             android:id="@+id/InvitacionesBtn"
