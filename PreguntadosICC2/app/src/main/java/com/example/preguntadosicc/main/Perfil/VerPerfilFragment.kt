@@ -9,10 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.preguntadosicc.OnClickListener
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.login.LoginViewModel
 import com.example.preguntadosicc.main.amigos.AmigosAdapter
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
+import com.example.preguntadosicc.main.invitaciones.Match
 import com.example.preguntadosicc.main.invitaciones.MatchFinishedResponse
 import com.example.preguntadosicc.networking.MatchesRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
@@ -23,7 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class VerPerfilFragment : Fragment() {
+class VerPerfilFragment : Fragment(), OnClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HistorialAdapter
@@ -71,14 +73,6 @@ class VerPerfilFragment : Fragment() {
 
                     if (response.code() == 200){
                         val matchFinishedRequest = gson.fromJson(response.body()?.string(), MatchFinishedResponse::class.java)
-
-                        Toast.makeText(
-                            context,
-                            matchFinishedRequest.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        println(matchFinishedRequest)
                         adapter.setRequests(matchFinishedRequest.partidas)
                     }
                 }
@@ -88,4 +82,9 @@ class VerPerfilFragment : Fragment() {
         return view
     }
 
+    override fun onClickItem(item: Any) {
+        if (item is Match){
+            
+        }
+    }
 }
