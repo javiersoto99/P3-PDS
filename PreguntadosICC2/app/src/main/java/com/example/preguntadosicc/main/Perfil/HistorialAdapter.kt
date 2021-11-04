@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.preguntadosicc.IadapterView
 import com.example.preguntadosicc.MainActivity
+import com.example.preguntadosicc.OnClickListener
 import com.example.preguntadosicc.R
 import com.example.preguntadosicc.main.invitaciones.Match
 import com.example.preguntadosicc.main.models.Friend
 import com.example.preguntadosicc.main.models.partidas.PartidasResponse
 import com.example.preguntadosicc.navigation.Navigator
 
-class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>() {
+class HistorialAdapter(override val onClickListener: VerPerfilFragment):
+    RecyclerView.Adapter<HistorialAdapter.HistorialViewHolder>(), IadapterView {
     lateinit var navigator : Navigator
 
     private var partidas = mutableListOf<Match>()
@@ -36,7 +39,9 @@ class HistorialAdapter: RecyclerView.Adapter<HistorialAdapter.HistorialViewHolde
         holder.resultado.text = partida.nombre
         holder.ganador.text = partida.ganador
 
-
+        holder.itemView.setOnClickListener {
+            onClickListener.onClickItem(partida)
+        }
 
     }
 

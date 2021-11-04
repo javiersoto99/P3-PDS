@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.preguntadosicc.R
+import com.example.preguntadosicc.main.invitaciones.Match
 import com.example.preguntadosicc.main.models.partidas.PartidasResponse
 import com.example.preguntadosicc.main.partidas.AnterioresAdapter
 
 class DetallesAdapter: RecyclerView.Adapter<DetallesAdapter.DetallesViewHolder>() {
+
+    private var partidas = mutableListOf<Match>()
 
     inner class DetallesViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val pregunta = itemView.findViewById(R.id.pregunta_tv) as TextView
@@ -23,11 +26,11 @@ class DetallesAdapter: RecyclerView.Adapter<DetallesAdapter.DetallesViewHolder>(
     }
 
     override fun onBindViewHolder(holder: DetallesViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val partida = partidas[position]
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return partidas.size
     }
 
 

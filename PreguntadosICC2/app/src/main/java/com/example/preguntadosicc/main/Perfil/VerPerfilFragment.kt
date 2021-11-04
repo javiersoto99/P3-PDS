@@ -1,5 +1,6 @@
 package com.example.preguntadosicc.main.Perfil
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.example.preguntadosicc.main.amigos.AmigosAdapter
 import com.example.preguntadosicc.main.invitaciones.FriendRequestsInfo
 import com.example.preguntadosicc.main.invitaciones.Match
 import com.example.preguntadosicc.main.invitaciones.MatchFinishedResponse
+import com.example.preguntadosicc.main.invitaciones.createMatchResponse
 import com.example.preguntadosicc.navigation.Navigator
 import com.example.preguntadosicc.networking.MatchesRemoteRepository
 import com.example.preguntadosicc.networking.getRetrofit
@@ -49,7 +51,7 @@ class VerPerfilFragment : Fragment(), OnClickListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_ver_perfil, container, false)
 
-        adapter = HistorialAdapter()
+        adapter = HistorialAdapter(this)
         recyclerView = view.findViewById(R.id.historial_RV)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -88,10 +90,12 @@ class VerPerfilFragment : Fragment(), OnClickListener {
     }
 
     override fun onClickItem(item: Any) {
-        navigator.navigateToDetalles()
-
         if (item is Match){
-            
+            val sharedPref = context?.getSharedPreferences("user", Context.MODE_PRIVATE)
+            val editor = sharedPref?.edit()
+            editor?.putInt("matchID2", item.id)
+            editor?.apply()
+            navigator.navigateToDetalles()
         }
     }
 
